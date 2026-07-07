@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Sitio Web - Despliegue en Google</title>
+    <meta name = "description" content = "Mi Sitio Web - Despliegue en Google"/>
+    <link rel="canonical" href="https://calculadora-jade-one.vercel.app/">
     <style>
         * {
             margin: 0;
@@ -22,7 +25,7 @@
             color: white;
             padding: 2rem;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
@@ -86,13 +89,13 @@
             background: white;
             border-radius: 8px;
             padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
         }
 
         .card h3 {
@@ -141,6 +144,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Mi Sitio Web de Ejemplo</h1>
@@ -156,7 +160,8 @@
     <div class="container">
         <section class="hero">
             <h2>Bienvenido a mi sitio web</h2>
-            <p>Este es un ejemplo completo y responsivo listo para desplegar en Google Cloud, Google Sites o cualquier servidor web.</p>
+            <p>Este es un ejemplo completo y responsivo listo para desplegar en Google Cloud, Google Sites o cualquier
+                servidor web.</p>
             <button class="btn">Empezar Ahora</button>
         </section>
 
@@ -192,7 +197,7 @@
     <script>
         // Script simple para interactividad
         document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', function(e) {
+            link.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
@@ -202,9 +207,10 @@
         });
 
         // Botón de inicio
-        document.querySelector('.btn').addEventListener('click', function() {
+        document.querySelector('.btn').addEventListener('click', function () {
             alert('¡Gracias por tu interés! 🎉');
         });
     </script>
 </body>
+
 </html>
