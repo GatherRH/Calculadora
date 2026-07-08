@@ -2,215 +2,380 @@
 <html lang="es">
 
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Sitio Web - Despliegue en Google</title>
-    <meta name="Description" content="Mi Sitio Web - Despliegue en Google" />
+    <title>Calculadora en Linea - Herramienta Gratuita</title>
+    <meta name="Description" content="Calculadora en linea gratuita y facil de usar. Realiza operaciones matematicas basicas al instante." />
     <link rel="canonical" href="https://calculadora-jade-one.vercel.app/">
     <meta name="google-site-verification" content="7x5Mx2FF9vaJjEfEQqMoBdFOXuFSZI30H0sKwPB4gjk" />
-    
 </head>
+
 <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #2c2c2c;
+        background-color: #fafafa;
+    }
 
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
+    header {
+        background-color: #1a1a1a;
+        color: #e8e8e8;
+        padding: 1.5rem 2rem;
+        text-align: center;
+    }
 
+    header h1 {
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin-bottom: 0.2rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+        color: #999;
+    }
+
+    nav {
+        background-color: #252525;
+        padding: 0.75rem 1rem;
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    nav a {
+        color: #bbb;
+        text-decoration: none;
+        padding: 0.4rem 0.8rem;
+        border-radius: 3px;
+        font-size: 0.9rem;
+        transition: color 0.2s;
+    }
+
+    nav a:hover {
+        color: white;
+    }
+
+    .container {
+        max-width: 960px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    .intro {
+        text-align: center;
+        margin: 2rem 0;
+        padding: 2rem 1rem;
+    }
+
+    .intro h2 {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        color: #1a1a1a;
+        font-weight: 600;
+    }
+
+    .intro p {
+        color: #666;
+        max-width: 500px;
+        margin: 0 auto;
+        font-size: 0.95rem;
+    }
+
+    .calculator-section {
+        display: flex;
+        justify-content: center;
+        margin: 2rem 0 3rem;
+    }
+
+    .calculator {
+        background: white;
+        border-radius: 10px;
+        padding: 1.5rem;
+        border: 1px solid #e0e0e0;
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .display {
+        background: #1a1a1a;
+        color: #e8e8e8;
+        font-size: 1.8rem;
+        padding: 1.2rem 1rem;
+        border-radius: 6px;
+        text-align: right;
+        word-wrap: break-word;
+        word-break: break-all;
+        min-height: 55px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+
+    .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+    }
+
+    .btn-calc {
+        padding: 0.9rem;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        font-weight: 500;
+    }
+
+    .btn-number {
+        background-color: #f0f0f0;
+        color: #2c2c2c;
+    }
+
+    .btn-number:hover {
+        background-color: #e0e0e0;
+    }
+
+    .btn-operator {
+        background-color: #1a1a1a;
+        color: white;
+    }
+
+    .btn-operator:hover {
+        background-color: #333;
+    }
+
+    .btn-equal {
+        grid-column: span 2;
+        background-color: #2d6a4f;
+        color: white;
+    }
+
+    .btn-equal:hover {
+        background-color: #1b4332;
+    }
+
+    .btn-clear {
+        background-color: #d4d4d4;
+        color: #2c2c2c;
+    }
+
+    .btn-clear:hover {
+        background-color: #bbb;
+    }
+
+    .features {
+        margin: 3rem 0;
+    }
+
+    .features h2 {
+        text-align: center;
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        color: #1a1a1a;
+        font-weight: 600;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.2rem;
+    }
+
+    .card {
+        background: white;
+        border-radius: 6px;
+        padding: 1.5rem;
+        border: 1px solid #e0e0e0;
+    }
+
+    .card h3 {
+        color: #1a1a1a;
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .card p {
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    footer {
+        background-color: #1a1a1a;
+        color: #999;
+        text-align: center;
+        padding: 1.5rem;
+        margin-top: 3rem;
+        font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
         header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
+            font-size: 1.3rem;
         }
 
         nav {
-            background-color: #333;
-            padding: 1rem;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
+            flex-direction: column;
+            gap: 0.3rem;
+            align-items: center;
         }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background-color 0.3s;
+        .calculator {
+            max-width: 100%;
         }
+    }
+</style>
 
-        nav a:hover {
-            background-color: #667eea;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .hero {
-            text-align: center;
-            margin: 3rem 0;
-            padding: 3rem 2rem;
-            background: linear-gradient(to right, #f5f7fa, #c3cfe2);
-            border-radius: 10px;
-        }
-
-        .hero h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #667eea;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .card {
-            background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .card h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: #667eea;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background-color 0.3s;
-            margin-top: 1rem;
-        }
-
-        .btn:hover {
-            background-color: #764ba2;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .hero h2 {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
 <body>
     <header>
-        <h1>Mi Sitio Web de Ejemplo</h1>
-        <p>Desplegado exitosamente en Google</p>
+        <h1>Calculadora</h1>
+        <p>Herramienta de calculo en linea</p>
     </header>
 
     <nav>
         <a href="#inicio">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#calculadora">Calculadora</a>
+        <a href="#caracteristicas">Acerca de</a>
     </nav>
 
     <div class="container">
-        <section class="hero">
-            <h2>Bienvenido a mi sitio web</h2>
-            <p>Este es un ejemplo completo y responsivo listo para desplegar en Google Cloud, Google Sites o cualquier
-                servidor web.</p>
-            <button class="btn">Empezar Ahora</button>
+        <section class="intro" id="inicio">
+            <h2>Calculadora online gratuita</h2>
+            <p>Realiza operaciones matematicas basicas de forma rapida. Funciona desde cualquier dispositivo y no necesitas instalar nada.</p>
         </section>
 
-        <section id="servicios">
-            <h2 style="text-align: center; margin-bottom: 2rem;">Nuestros Servicios</h2>
+        <section class="calculator-section" id="calculadora">
+            <div class="calculator">
+                <div class="display" id="display">0</div>
+                <div class="buttons">
+                    <button class="btn-calc btn-clear" onclick="limpiar()">C</button>
+                    <button class="btn-calc btn-clear" onclick="borrar()">&#9003;</button>
+                    <button class="btn-calc btn-operator" onclick="agregarOperador('/')">/</button>
+                    <button class="btn-calc btn-operator" onclick="agregarOperador('*')">x</button>
+
+                    <button class="btn-calc btn-number" onclick="agregarNumero('7')">7</button>
+                    <button class="btn-calc btn-number" onclick="agregarNumero('8')">8</button>
+                    <button class="btn-calc btn-number" onclick="agregarNumero('9')">9</button>
+                    <button class="btn-calc btn-operator" onclick="agregarOperador('-')">-</button>
+
+                    <button class="btn-calc btn-number" onclick="agregarNumero('4')">4</button>
+                    <button class="btn-calc btn-number" onclick="agregarNumero('5')">5</button>
+                    <button class="btn-calc btn-number" onclick="agregarNumero('6')">6</button>
+                    <button class="btn-calc btn-operator" onclick="agregarOperador('+')">+</button>
+
+                    <button class="btn-calc btn-number" onclick="agregarNumero('1')">1</button>
+                    <button class="btn-calc btn-number" onclick="agregarNumero('2')">2</button>
+                    <button class="btn-calc btn-number" onclick="agregarNumero('3')">3</button>
+                    <button class="btn-calc btn-equal" onclick="calcular()">=</button>
+
+                    <button class="btn-calc btn-number" onclick="agregarNumero('0')" style="grid-column: span 2;">0</button>
+                    <button class="btn-calc btn-number" onclick="agregarNumero('.')">.</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="caracteristicas" class="features">
+            <h2>Caracteristicas</h2>
             <div class="cards">
                 <div class="card">
-                    <h3> Diseño Responsivo</h3>
-                    <p>Sitios que se adaptan perfectamente a cualquier dispositivo: desktop, tablet o móvil.</p>
-                    <a href="#" class="btn">Saber Más</a>
+                    <h3>Facil de usar</h3>
+                    <p>Interfaz limpia sin distracciones. Haces clic en los botones o usas tu teclado directamente.</p>
                 </div>
 
                 <div class="card">
-                    <h3> Rendimiento Rápido</h3>
-                    <p>Optimizado para velocidad y eficiencia. Carga rápida en todas las conexiones.</p>
-                    <a href="#" class="btn">Saber Más</a>
+                    <h3>Funciona en cualquier dispositivo</h3>
+                    <p>Se adapta a computadoras, tablets y celulares sin necesidad de descargar nada.</p>
                 </div>
 
                 <div class="card">
-                    <h3> Seguro y Moderno</h3>
-                    <p>HTML5 semántico con las mejores prácticas de seguridad e accesibilidad web.</p>
-                    <a href="#" class="btn">Saber Más</a>
+                    <h3>Resultados al instante</h3>
+                    <p>Las operaciones se procesan de forma local, asi que los resultados aparecen de inmediato.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Sin registro</h3>
+                    <p>No necesitas crear una cuenta ni dar tus datos. Solo entra y usa la calculadora.</p>
                 </div>
             </div>
         </section>
     </div>
 
-    <footer id="contacto">
-        <p>&copy; 2024 Mi Sitio Web. Todos los derechos reservados.</p>
-        <p>Desplegado con en Google</p>
+    <footer>
+        <p>Calculadora en Linea &copy; 2024</p>
     </footer>
 
     <script>
-        // Script simple para interactividad
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', function (e) {
+        let display = document.getElementById('display');
+        let expression = '';
+
+        function agregarNumero(num) {
+            if (display.textContent === '0' && num !== '.') {
+                display.textContent = num;
+            } else if (num === '.' && display.textContent.includes('.')) {
+                return;
+            } else {
+                display.textContent += num;
+            }
+            expression = display.textContent;
+        }
+
+        function agregarOperador(op) {
+            if (display.textContent === '') return;
+            expression = display.textContent + op;
+            display.textContent += op;
+        }
+
+        function calcular() {
+            try {
+                let resultado = eval(expression);
+                display.textContent = resultado;
+                expression = String(resultado);
+            } catch (error) {
+                display.textContent = 'Error';
+                expression = '';
+            }
+        }
+
+        function limpiar() {
+            display.textContent = '0';
+            expression = '';
+        }
+
+        function borrar() {
+            expression = expression.slice(0, -1);
+            display.textContent = expression || '0';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key >= '0' && e.key <= '9') agregarNumero(e.key);
+            if (e.key === '.') agregarNumero('.');
+            if (e.key === '+' || e.key === '-') agregarOperador(e.key);
+            if (e.key === '*') agregarOperador('*');
+            if (e.key === '/') { e.preventDefault(); agregarOperador('/'); }
+            if (e.key === 'Enter') calcular();
+            if (e.key === 'Backspace') borrar();
+            if (e.key === 'Escape') limpiar();
+        });
+
+        document.querySelectorAll('nav a').forEach(function(link) {
+            link.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                var target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
-        });
-
-        // Botón de inicio
-        document.querySelector('.btn').addEventListener('click', function () {
-            alert('¡Gracias por tu interés! 🎉');
         });
     </script>
 </body>
