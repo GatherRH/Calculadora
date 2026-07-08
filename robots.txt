@@ -1,4 +1,3 @@
 User-agent: *
-
 Allow: /
 Sitemap: https://calculadora-jade-one.vercel.app/sitemap.xml
